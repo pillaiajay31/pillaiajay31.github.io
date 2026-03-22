@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Droplets, Heart, ShieldCheck, Zap, ArrowRight, Check, X } from "lucide-react";
 
@@ -54,7 +54,7 @@ const PRODUCTS = [
   {
     id: "sesame",
     name: "Sesame Oil",
-    localImage: "../sesame.png",
+    localImage: "sesame.png",
     color: "#D97706",
     description: "Rich in antioxidants and heart-healthy fats, our sesame oil is perfect for traditional cooking.",
     benefits: ["High Smoke Point", "Rich in Vitamin E", "Anti-inflammatory"]
@@ -95,6 +95,14 @@ const COMPARISON = [
 
 export default function App() {
   const [activeModal, setActiveModal] = useState<"privacy" | "terms" | null>(null);
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % PRODUCTS.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   const Modal = ({ type, onClose }: { type: "privacy" | "terms", onClose: () => void }) => (
     <motion.div 
@@ -154,32 +162,21 @@ export default function App() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-12">
         <div className="absolute inset-0 z-0">
-          <motion.video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline 
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.4 }}
-            transition={{ duration: 2, ease: "easeOut" }}
-            className="absolute inset-0 w-full h-full object-cover grayscale-[0.3]"
-          >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-pouring-oil-into-a-bowl-40344-large.mp4" type="video/mp4" />
-          </motion.video>
-          <div className="absolute inset-0 bg-radial from-brand-gold/5 via-cream/80 to-cream z-10" />
+          <div className="absolute inset-0 bg-radial from-brand-gold/10 via-cream to-cream z-10" />
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }} />
         </div>
         
         <div className="container mx-auto px-6 relative z-20 grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div 
+          <motion.div
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true }}
             variants={{
               hidden: { opacity: 0 },
               visible: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.2,
-                  delayChildren: 0.5
+                  staggerChildren: 0.2
                 }
               }
             }}
@@ -189,7 +186,7 @@ export default function App() {
                 hidden: { opacity: 0, y: 30 },
                 visible: { opacity: 1, y: 0 }
               }}
-              className="font-serif text-5xl md:text-8xl leading-[0.85] tracking-tighter mb-6"
+              className="text-6xl md:text-8xl font-display font-bold leading-tight mb-6"
             >
               PURE <br />
               <span className="text-brand-red italic">TRADITION</span> <br />
@@ -225,11 +222,17 @@ export default function App() {
           >
             <div className="relative preserve-3d">
               <motion.img 
-                src="groundnut.png" 
-                alt="Groundnut Oil" 
-                className="w-full max-w-md mx-auto drop-shadow-2xl"
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                key={PRODUCTS[heroIndex].id}
+                src={PRODUCTS[heroIndex].localImage} 
+                alt={PRODUCTS[heroIndex].name} 
+                className="w-full max-w-md mx-auto drop-shadow-2xl h-[400px] object-contain"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1, y: [0, -20, 0] }}
+                transition={{ 
+                  opacity: { duration: 0.5 },
+                  scale: { duration: 0.5 },
+                  y: { duration: 4, repeat: Infinity, ease: "easeInOut" } 
+                }}
                 referrerPolicy="no-referrer"
               />
               <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-48 h-8 bg-black/10 blur-xl rounded-full" />
@@ -285,7 +288,7 @@ export default function App() {
                   />
                 </div>
                 <h3 className="font-serif text-2xl mb-2">{product.name}</h3>
-                <p className="text-sm opacity-70 mb-4 line-clamp-2">{product.description}</p>
+                <p className="text-sm opacity-70 mb-4">{product.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {product.benefits.map(benefit => (
                     <span key={benefit} className="text-[10px] uppercase font-bold tracking-wider bg-white px-2 py-1 rounded-full border border-brand-brown/10">
