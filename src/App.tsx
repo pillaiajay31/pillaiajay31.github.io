@@ -5,7 +5,7 @@ import { Droplets, Heart, ShieldCheck, Zap, ArrowRight, Check, X } from "lucide-
 const PRIVACY_POLICY = `
 # Privacy Policy
 
-At Dakshin Swaad (Pillai Agri Products), we are committed to protecting your privacy.
+At Dakshin swaad (Pillai Agri Products), we are committed to protecting your privacy.
 
 ## 1. Information Collection
 We collect personal information such as your name, email address, phone number, and shipping address when you place an order or contact us.
@@ -29,10 +29,10 @@ You have the right to access, correct, or delete your personal information at an
 const TERMS_OF_SERVICE = `
 # Terms of Service
 
-Welcome to Dakshin Swaad. By using our website, you agree to the following terms.
+Welcome to Dakshin swaad. By using our website, you agree to the following terms.
 
 ## 1. Product Information
-Dakshin Swaad provides 100% organic, cold-pressed oils. While we strive for accuracy, actual product packaging and materials may contain more or different information than shown.
+Dakshin swaad provides 100% organic, cold-pressed oils. While we strive for accuracy, actual product packaging and materials may contain more or different information than shown.
 
 ## 2. Ordering and Payment
 All orders are subject to acceptance and availability. Prices are subject to change without notice.
@@ -44,7 +44,7 @@ We aim to deliver products within the estimated timelines. However, delays may o
 If you receive a damaged or incorrect product, please contact us within 48 hours of delivery for a replacement or refund.
 
 ## 5. Limitation of Liability
-Dakshin Swaad shall not be liable for any indirect, incidental, or consequential damages arising from the use of our products or website.
+Dakshin swaad shall not be liable for any indirect, incidental, or consequential damages arising from the use of our products or website.
 
 ## 6. Governing Law
 These terms are governed by the laws of India.
@@ -148,7 +148,7 @@ export default function App() {
       <nav className="fixed top-0 w-full z-50 bg-cream/80 backdrop-blur-md border-b border-brand-brown/10">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="logo.png" alt="Dakshin Swaad Logo" className="h-16 w-auto" referrerPolicy="no-referrer" />
+            <img src="logo.png" alt="Dakshin swaad Logo" className="h-16 w-auto" referrerPolicy="no-referrer" />
           </div>
           <div className="hidden md:flex gap-12 text-sm font-medium uppercase tracking-widest">
             <a href="#products" className="hover:text-brand-red transition-colors">Products</a>
@@ -201,7 +201,7 @@ export default function App() {
               }}
               className="text-lg md:text-xl max-w-md mb-8 opacity-80 leading-relaxed"
             >
-              Dakshin Swaad brings you the essence of South Indian heritage through our premium, 100% organic cold-pressed oils.
+              Dakshin swaad brings you the essence of South Indian heritage through our premium, 100% organic cold-pressed oils.
             </motion.p>
             <motion.div 
               variants={{
@@ -399,7 +399,7 @@ export default function App() {
           <div>
             <img src="logo.png" alt="Logo" className="h-20 mb-6" referrerPolicy="no-referrer" />
             <p className="max-w-sm opacity-60 text-sm mb-8">
-              Dakshin Swaad is committed to reviving the traditional methods of oil extraction. We believe in purity, health, and the authentic taste of South India.
+              Dakshin swaad is committed to reviving the traditional methods of oil extraction. We believe in purity, health, and the authentic taste of South India.
             </p>
           </div>
           <div>
@@ -413,7 +413,7 @@ export default function App() {
           </div>
         </div>
         <div className="container mx-auto px-6 mt-20 pt-8 border-t border-brand-brown/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest opacity-40 font-bold">
-          <p>© 2026 Dakshin Swaad (Pillai Agri Products). All rights reserved.</p>
+          <p>© 2026 Dakshin swaad (Pillai Agri Products). All rights reserved.</p>
           <div className="flex gap-8">
             <button onClick={() => setActiveModal("privacy")} className="hover:text-brand-red transition-colors">Privacy Policy</button>
             <button onClick={() => setActiveModal("terms")} className="hover:text-brand-red transition-colors">Terms of Service</button>
