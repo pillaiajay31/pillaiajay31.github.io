@@ -189,7 +189,9 @@ export default function App() {
               className="text-6xl md:text-8xl font-display font-bold leading-tight mb-6"
             >
               PURE <br />
-              <span className="text-brand-red italic">TRADITION</span> <br />
+              <span className="text-brand-red">
+                TRADIT<span className="relative inline-block">I<motion.span initial={{ y: -10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 1.2, duration: 0.6 }} className="absolute -top-[0.05em] left-1/2 -translate-x-1/2 w-[0.15em] h-[0.15em] bg-brand-gold rounded-full rounded-tl-none rotate-45 shadow-sm" /></span>ON
+              </span> <br />
               IN EVERY DROP
             </motion.h1>
             <motion.p 
