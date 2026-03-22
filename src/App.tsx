@@ -54,7 +54,7 @@ const PRODUCTS = [
   {
     id: "sesame",
     name: "Sesame Oil",
-    localImage: "sesame.png",
+    localImage: "../sesame.png",
     color: "#D97706",
     description: "Rich in antioxidants and heart-healthy fats, our sesame oil is perfect for traditional cooking.",
     benefits: ["High Smoke Point", "Rich in Vitamin E", "Anti-inflammatory"]
