@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  
+  --color-brand-brown: #3D2B1F;
+  --color-brand-gold: #C5A059;
+  --color-brand-olive: #5A5A40;
+  --color-cream: #FDFBF7;
+  --color-paper: #F5F5F0;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-brand-brown font-sans antialiased overflow-x-hidden;
+  }
+}
+
+.glass-nav {
+  @apply bg-cream/80 backdrop-blur-md border-b border-brand-brown/5;
+}
+
+.soft-shadow {
+  box-shadow: 0 10px 30px -10px rgba(61, 43, 31, 0.1);
+}
+
+.pill-button {
+  @apply px-8 py-3 rounded-full transition-all duration-300 font-medium tracking-wide;
+}
